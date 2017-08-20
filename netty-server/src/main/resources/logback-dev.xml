@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true">
+    <appender name="logfile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/var/log/demo/netty-server.log</File>
+        <encoder>
+            <pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level %logger{80}.%method - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/demo/netty-server-%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <root level="debug">
+        <appender-ref ref="logfile" />
+    </root>
+</configuration>
